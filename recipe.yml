@@ -34,16 +34,6 @@ stages:
       - file
       - sudo
 
-  - name: install-brew # Sample module demonstrating the Shell module with custom commands
-    type: shell
-    commands:
-    - "NONINTERACTIVE=1 /bin/bash -c \"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)\""
-
-  - name: add-brew-to-shell
-    type: shell
-    commands:
-    - eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-
   - name: install nordvpn
     type: shell
     commands:
