@@ -32,12 +32,13 @@ stages:
       - procps 
       - curl 
       - file
-      - sudo
 
-  - name: install-nordvpn
+  - name: install-xonedo
     type: shell
     commands:
-    - sh <(curl -sSf https://downloads.nordcdn.com/apps/linux/install.sh)
+    - git clone https://github.com/bazzite-org/xonedo.git
+    - cd xonedo
+    - ./install.sh
 
   # Put your custom actions above this comment
 
