@@ -32,7 +32,6 @@ stages:
       - procps 
       - curl 
       - file
-      - dkms
 
   - name: install-mullvad
     type: shell
@@ -41,14 +40,6 @@ stages:
     - echo "deb [signed-by=/usr/share/keyrings/mullvad-keyring.asc arch=$( dpkg --print-architecture )] https://repository.mullvad.net/deb/stable stable main" | sudo tee /etc/apt/sources.list.d/mullvad.list
     - apt-get update
     - apt-get install mullvad-vpn
-
-  - name: install-xone
-    type: shell
-    commands:
-    - apt-get install linux-headers-$(uname -r)
-    - git clone https://github.com/medusalix/xone
-    - cd xone
-    - ./install.sh
 
   # Put your custom actions above this comment
 
