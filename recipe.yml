@@ -32,13 +32,15 @@ stages:
       - procps 
       - curl 
       - file
+      - dkms
 
-  - name: install-xonedo
+  - name: install-mullvad
     type: shell
     commands:
-    - git clone https://github.com/bazzite-org/xonedo.git
-    - cd xonedo
-    - ./install.sh
+    - curl -fsSLo /usr/share/keyrings/mullvad-keyring.asc https://repository.mullvad.net/deb/mullvad-keyring.asc
+    - echo "deb [signed-by=/usr/share/keyrings/mullvad-keyring.asc arch=$( dpkg --print-architecture )] https://repository.mullvad.net/deb/stable stable main" | sudo tee /etc/apt/sources.list.d/mullvad.list
+    - apt-get update
+    - apt-get install mullvad-vpn
 
   # Put your custom actions above this comment
 
