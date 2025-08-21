@@ -45,6 +45,7 @@ stages:
   - name: install-xone
     type: shell
     commands:
+    - apt-get install linux-headers-$(uname -r)
     - git clone https://github.com/medusalix/xone
     - cd xone
     - ./install.sh
