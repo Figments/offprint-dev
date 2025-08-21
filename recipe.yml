@@ -42,6 +42,13 @@ stages:
     - apt-get update
     - apt-get install mullvad-vpn
 
+  - name: install-xone
+    type: shell
+    commands:
+    - git clone https://github.com/medusalix/xone
+    - cd xone
+    - ./install.sh
+
   # Put your custom actions above this comment
 
   - name: set-image-name-abroot
