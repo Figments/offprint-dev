@@ -23,16 +23,6 @@ stages:
 
   # Put your custom actions below this comment
 
-  - name: install-packages # Sample module using the built-in Apt module to install packages
-    type: apt
-    source:
-      packages:
-      - build-essential
-      - git
-      - procps 
-      - curl 
-      - file
-
   - name: install-mullvad
     type: shell
     commands:
