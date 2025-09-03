@@ -23,13 +23,23 @@ stages:
 
   # Put your custom actions below this comment
 
-  - name: install-mullvad
+  - name: prerequisites
+    type: apt
+    source:
+      packages:
+        - git
+        - dkms
+        - curl
+        - cabextract
+        - linux-headers-amd64
+
+  - name: install-xone
     type: shell
     commands:
-    - curl -fsSLo /usr/share/keyrings/mullvad-keyring.asc https://repository.mullvad.net/deb/mullvad-keyring.asc
-    - echo "deb [signed-by=/usr/share/keyrings/mullvad-keyring.asc arch=$( dpkg --print-architecture )] https://repository.mullvad.net/deb/stable stable main" | tee /etc/apt/sources.list.d/mullvad.list
-    - apt-get update
-    - apt-get install mullvad-vpn
+      - cd /tmp
+      - git clone https://github.com/mambucodev/xone
+      - cd xone
+      - ./install.sh
 
   # Put your custom actions above this comment
 
